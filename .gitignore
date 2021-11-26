@@ -1,0 +1,32 @@
+*.DS_Store
+*.egg*
+*.log
+*.mo
+*.pyc
+*.swo
+*.swp
+*~
+.vscode
+AUTHORS
+
+.coverage
+.idea
+.stestr/
+.testrepository
+.tox
+build
+ChangeLog
+dist
+
+# Doc related
+doc/build
+api-ref/build
+
+# Development environment files
+.project
+.pydevproject
+cover
+
+# Files created by releasenotes build
+releasenotes/build
+.ropeproject

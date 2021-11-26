@@ -33,7 +33,7 @@ pygments_style = 'sphinx'
 # Locations to exclude when looking for source files.
 exclude_patterns = ['_build']
 
-# -- Options for HTML output ----------------------------------------------
+# Options for HTML output
 html_theme = 'otcdocs'
 html_theme_options = {
     "sidebar_mode": "toctree"

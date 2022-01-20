@@ -36,7 +36,6 @@ exclude_patterns = ['_build']
 # Options for HTML output
 html_theme = 'otcdocs'
 html_theme_options = {
-    "sidebar_mode": "toctree"
 }
 otcdocs_auto_name = False
 

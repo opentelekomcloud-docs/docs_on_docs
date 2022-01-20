@@ -79,3 +79,4 @@ Content
    code_editors
    rst
    migration
+   presentations/index

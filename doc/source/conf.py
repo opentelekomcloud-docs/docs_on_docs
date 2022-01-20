@@ -11,10 +11,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Add any Sphinx extension module names here, as strings. They can be
-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
+import os
+import sys
+
+# If extensions (or modules to document with autodoc) are in another directory,
+# add these directories to sys.path here. If the directory is relative to the
+# documentation root, use os.path.abspath to make it absolute, like shown here.
+sys.path.insert(0, os.path.abspath('../../'))
+sys.path.insert(0, os.path.abspath('../'))
+sys.path.insert(0, os.path.abspath('./'))
+
 extensions = [
-    'otcdocstheme'
+    'sphinx_revealjs',
+    'otcdocstheme',
 ]
 
 # The suffix of source filenames.
@@ -39,7 +48,32 @@ html_theme_options = {
 }
 otcdocs_auto_name = False
 
-html_static_path = []
+html_static_path = ['_static']
+
+revealjs_static_path = ['_static']
+revealjs_css_files = ['custom.css']
+revealjs_script_conf = """
+{
+    controls: true,
+    controlsBackArrows: 'faded',
+    transition: 'slide',
+
+    // Display a presentation progress bar
+    progress: true,
+
+    //width: '90%',
+    // Factor of the display size that should remain empty around
+    // the content
+    margin: 0.04,
+
+    // Bounds for smallest/largest possible scale to apply to content
+    minScale: 0.2,
+    maxScale: 2.0,
+
+    width: 1600,
+    height: 800,
+}
+"""
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass

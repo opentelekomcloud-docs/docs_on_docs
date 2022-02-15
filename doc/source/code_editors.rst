@@ -1,12 +1,14 @@
 ============
 Code Editors
 ============
+
 ==============================
 IDE and Editor Recommendations
 ==============================
 
 
 -NotepadPP
+
 	NotepadPP version 8.2 and the addon “reStructuredText_NPP”
 	Use the following link to GitHub for further instructions 
 	https://github.com/steenhulthin/reStructuredText_NPP
@@ -33,29 +35,33 @@ IDE and Editor Recommendations
 	And furthermore, use https://github.com/textmate/restructuredtext.tmbundle
 
 -Eclipse
+
 	Eclipse was originally developed for Java but with Plugins it can be modified to
 	run man programming languages as well as RST
 	https://marketplace.eclipse.org/content/liclipsetext
 
 -Sublime
+
 	Sublime is a proprietary Text editor fpr Windows, Mac and Linux. 
 	It supports Many useful future proof features like ARM64 or GPU rendering
 	RST Support is built right in and the programming language can be changed in the lower right hand corner.  
 
 -Intellij
+
 	Intellij is a IDE for Java programming 
 	Intellij has so called deep intelligence by giving relevant suggestions in every context by analyzing your source code
 	In addition the IDE has a good out-of-the-box experience 
-  Although, RST hast to be installed at https://plugins.jetbrains.com/plugin/7124-restructuredtext/versions
+  	Although, RST hast to be installed at https://plugins.jetbrains.com/plugin/7124-restructuredtext/versions
 
 
 -Xcode
-	Xcode is Apple´s IDE used for development of **macOS, iOS, iPadOS and tvOS software. **
+
+	Xcode is Apple´s IDE used for development of **macOS, iOS, iPadOS and tvOS software**.
 	Therefore, other IDEs would be recommended
 	
 -VSCode
+
 	Visual code Studio is a code editor that is optimized for building, debugging modern web and cloud applications
 	Available at https://code.visualstudio.com/download 
 	And the most Downloaded RST extension for RST is “RestructuredText” by LeXtudio Inc.
 	Available at: https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext
-

@@ -12,13 +12,13 @@ IDE and Editor Recommendations
 	https://github.com/steenhulthin/reStructuredText_NPP
   
 -Vim 
-  Available on almost every Linux OS by default and versatility and extendibility are the key features of Vim.
-  With GVim highlighting and manipulating text is easy. Gvim is the graphical version of Vim.   
-	For Vim the plugin “RIV” is a good choice RIV has good support for RST. 
-	Further Information on RIV: https://github.com/gu-fan/riv.vim/blob/master/doc/riv_quickstart.rst
-  Plugin Available at: https://github.com/steenhulthin/reStructuredText_NPP
-  For Better creation and reformation of tables in RST using Vim use the following Plugin 
-  https://github.com/nvie/vim-rst-tables/
+  	Available on almost every Linux OS by default and versatility and extendibility are the key features of Vim.
+  	With GVim highlighting and manipulating text is easy. Gvim is the graphical version of Vim.
+  	For Vim the plugin “RIV” is a good choice RIV has good support for RST. 
+  	Further Information on RIV: https://github.com/gu-fan/riv.vim/blob/master/doc/riv_quickstart.rst
+  	Plugin Available at: https://github.com/steenhulthin/reStructuredText_NPP
+  	For Better creation and reformation of tables in RST using Vim use the following Plugin 
+  	https://github.com/nvie/vim-rst-tables/
 
 -Nano
 	Next Editor is also targeted at more experienced users that aren´t interested in nice UI Designs. 
@@ -53,7 +53,7 @@ IDE and Editor Recommendations
 	Xcode is Apple´s IDE used for development of **macOS, iOS, iPadOS and tvOS software. **
 	Therefore, other IDEs would be recommended
 	
--Visual_Studio_Code
+-VSCode
 	Visual code Studio is a code editor that is optimized for building, debugging modern web and cloud applications
 	Available at https://code.visualstudio.com/download 
 	And the most Downloaded RST extension for RST is “RestructuredText” by LeXtudio Inc.

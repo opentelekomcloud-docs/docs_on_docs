@@ -21,6 +21,14 @@ IDE Recommendations
 	Intellij has so called deep intelligence by giving relevant suggestions in every context by analyzing your source code
 	In addition the IDE has a good out-of-the-box experience 
   	Although, RST hast to be installed at https://plugins.jetbrains.com/plugin/7124-restructuredtext/versions
+	
+	
+-VSCode
+
+	Visual code Studio is a code editor that is optimized for building, debugging modern web and cloud applications
+	Available at https://code.visualstudio.com/download 
+	And the most Downloaded RST extension for RST is “RestructuredText” by LeXtudio Inc.
+	Available at: https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext
 
 
 -Xcode
@@ -69,9 +77,3 @@ Editor Recommendations
 	It supports Many useful future proof features like ARM64 or GPU rendering
 	RST Support is built right in and the programming language can be changed in the lower right hand corner.  
 	
--VSCode
-
-	Visual code Studio is a code editor that is optimized for building, debugging modern web and cloud applications
-	Available at https://code.visualstudio.com/download 
-	And the most Downloaded RST extension for RST is “RestructuredText” by LeXtudio Inc.
-	Available at: https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext

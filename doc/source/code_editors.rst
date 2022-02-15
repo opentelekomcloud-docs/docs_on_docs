@@ -2,7 +2,7 @@
 Code Editors
 ============
 
-==============================
+
 IDE and Editor Recommendations
 ==============================
 

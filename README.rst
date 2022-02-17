@@ -15,11 +15,6 @@ propose changes, suggest fixes and validate previews.
 
 
 
-Demo
-====
-
-|demo|
-
 
 Initializing a repo
 ===================

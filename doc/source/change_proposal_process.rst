@@ -2,25 +2,7 @@
 Change Proposal Process
 =======================
 
-https://github.com/opentelekomcloud-docs/sandbox
-
-Editing Documentation
-=====================
-
-The documentation format we use is Restructured Text, often
-abbreviated "ReST" or ".rst" as a file extension. It is very similar
-to Markdown, but more powerful since it has some extra features. But
-basically, it is just plain unformatted text. Headlines can be done
-with a "#" or "##" in front of the title, bold text is produced by
-embracing the text with "**", italics are created by "__". There's a
-lot of external documentation on the details (https://sphinx-tutorial.readthedocs.io/step-1/).
-
-  * Toctree
-  * Links
-  * Makros
-  * Automatically generated documentation from source
-  * Editorial recommendations for documentation on language
-  * Building the documentation locally
+To apply a change in the documentation a number of steps have to be performed. They are listed on this page step by step.
 
 Initializing a repo
 ===================
@@ -39,6 +21,9 @@ These steps are necessary to initialize a project repo enabling you to contribut
 
 4. Click on the green “Code” button and copy the URL for your fork of
    the repo.
+   
+ Preparing for your local copy
+ ==========================
 
 5. Switch to your shell or IDE and import this forked repo in a folder
    where you keep your source code projects, for example with
@@ -70,6 +55,11 @@ These steps are necessary to initialize a project repo enabling you to contribut
    be replaced by something else, for example “umn” or
    “api”. Experienced users can configure this in “tox.ini”.
 
+
+Editing the documents
+=====================
+
+
 9. Edit the files with an “rst” extension to reflect your additions or
    changes to the documentation. The root node of the documentation is
    in “index.rst”. Make sure that all restructured text files are
@@ -80,6 +70,9 @@ These steps are necessary to initialize a project repo enabling you to contribut
 10. You can check any time with “git status” for pending changes. They
     are marked red if you either modified existing files (“modified”)
     or introduced new ones (“untracked files”).
+    
+ Comitting your changes
+ ======================
 
 11. Once you edited all files of one change, add them to your staging
     area. You can add the files one by one with “git add file1 file2
@@ -91,7 +84,7 @@ These steps are necessary to initialize a project repo enabling you to contribut
     just with “git reset” for all of them. This does not affect the
     changes inside the files.
 
-12. If you have finished adding files to the changeset, you have to
+12. If you have finished adding files to the change set, you have to
     commit it and provide a short message, why you changed
     something. It is good practice to phrase this in an imperative
     tone extending the sentence “If added to the project, these
@@ -110,6 +103,9 @@ These steps are necessary to initialize a project repo enabling you to contribut
     you are overhauling one section, adding new subsections to it and
     do a general proofreading fixing spelling typos, these should go
     into separate commits.
+    
+ Preparing a pull request
+ ========================
 
 14. Now the commit (which is the Git terminology for “change set”) is
     in your local copy of your fork of the project. To upload it your
@@ -117,22 +113,28 @@ These steps are necessary to initialize a project repo enabling you to contribut
 
     git push --set-upstream origin tutorial
 
-15. You may repeat steps 9 – 15 also arbitrary times Git answers with
-    a short report and an URL where you can create a pull
+
+15.  Git answers with a short report and an URL where you can create a pull
     request. Copy it and open it in your browser:
 
     https://github.com/Nils-Magnus/docs_on_docs/pull/new/tutorial
 
+ 
 16. Enter a description in the GitHub UI for your reviewing colleagues
     and peers. Once finished, click on the green button “Create pull
     request”.
+    
+Varify build process and identify errors
+========================================
 
-17. The review phase starts. Now two things happen in parallel: The
+17. Now two things happen in parallel: The
     automated and the manual review. Let’s first look into the
-    automated checks: Zuul is instantly simulating to merge your
-    changes and build the whole project. If all is well, a green
+    automated checks: Zuul is simulating to merge your
+    changes and builds the whole project. If all is well, a green
     checkmark says: “This branch has no conflicts with the base
-    branch.” If, however, Zuul and Sphinx are not able to build the
+    branch.” In this case you can proceed to step 22.
+      
+18. If, however, Zuul and Sphinx are not able to build the
     project successfully, several red stop signs appear. To
     investigate for the cause, identify the symbol for “… checks have
     failed” and click on “Details” right next to it. In the main
@@ -140,7 +142,7 @@ These steps are necessary to initialize a project repo enabling you to contribut
     there’s probably a red cross stating “FAILURE”, the time Zuul
     needed to perform the checks, and a link. Click on it.
 
-18. You now see a job detail page generated by Zuul. There’s lots of
+19. You now see a job detail page generated by Zuul. There’s lots of
     information about the job and Zuul’s configuration, but we are
     interested only in the “Logs” tab on the lower part of the
     screen. In the tab there’s a long file “job-output.txt”, that
@@ -152,36 +154,59 @@ These steps are necessary to initialize a project repo enabling you to contribut
     before the next “ERROR” line. Depending on the type of the error,
     the important information might be in another line, though.
 
-19. To prevent cycling over tiny bugs repeatedly, it might be helpful
+20. To prevent cycling over tiny bugs repeatedly, it might be helpful
     to test a changeset locally first before pushing it to GitHub. We
     mentioned this in step 7 before.
 
-20. Once you found the cause of the failed check, return to your local
+21. Once you found the cause of the failed check, return to your local
     repository, and fix it. You may close the Zuul browser tab and
     return to step 9.
+    
+Manual review and approval process
+==================================
 
-21. In the meantime, the manual review phase has started in
+22. In the meantime, the manual review phase has started in
     parallel. You may either hope that some peer monitors the project
-    and comments on the PR or copy the link in a messenger so that
-    potential reviewers notice. There is no technical requirement for
+    and comments on the PR or you copy the link in a messenger so that
+    potential reviewers notice.
+    
+23. To see the results of the pending change you may take a look at the preliminary version.
+    First locate the text "all checks have passed" next to the green checkmark
+    
+24. Click on "Show all checks" and then on "Details" below. 
+    Under the headline "Summary" all build jobs are listed. 
+    Identify the one with "tox-docs" in it and click on the link. 
+    Select "Artifacts" and click on "Docs preview site".
+    Now the rendered site is displayed.    
+    
+25. There is no technical requirement for
     reviews but having at least two other colleagues verifying your
     change set is considered good practice. However, every team may
-    define its own review policies. Regardless of this policy nobody
+    define its own [review policies](xxx). Regardless of this policy nobody
     can merge directly into the repository, since Zuul prevents
     this. Only Zuul has effective write permissions to it.
 
-22. Watch the comments on the PR. It is your responsibility to either
+26. Watch the comments on the PR. It is your responsibility to either
     fix (or reject) the comments of your peers, not theirs. If you
     need to change texts, go back to step 9, create new commits, and
     push them to the same branch of the repository. They will appear
     in the same PR.
 
-23. If the project agrees that the change set is ready to be merged,
+27. If the project agrees that the change set is ready to be merged,
     someone has to put the label “gate” to the commit. To do so, open
     the PR, select the “Conversation” tab, and locate the “Labels”
     section on the right-hand sidebar. Click on the tiny wheel and
-    select the “gate” label.
+    select the “gate” label. Each team can define its own [approval policy](xxx). 
 
-24. XXX What happens now?
+Final merge and publishing of the change
+========================================
+
+28.  Once the "gate" label is placed on the PR, the change is built one final time. 
+     If you see the message "Pull request successfully merged and closed" 
+     The change is automatically published onto the website.
+     
+29.  If the build fails you need to resolve the issue as mentioned in step 18.
+     Otherwise you are done. Congratulations!
+
 
 

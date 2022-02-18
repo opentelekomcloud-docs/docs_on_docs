@@ -22,8 +22,8 @@ These steps are necessary to initialize a project repo enabling you to contribut
 4. Click on the green “Code” button and copy the URL for your fork of
    the repo.
    
- Preparing for your local copy
- ==========================
+Preparing for your local copy
+=============================
 
 5. Switch to your shell or IDE and import this forked repo in a folder
    where you keep your source code projects, for example with
@@ -71,8 +71,8 @@ Editing the documents
     are marked red if you either modified existing files (“modified”)
     or introduced new ones (“untracked files”).
     
- Comitting your changes
- ======================
+Comitting your changes
+======================
 
 11. Once you edited all files of one change, add them to your staging
     area. You can add the files one by one with “git add file1 file2
@@ -104,8 +104,8 @@ Editing the documents
     do a general proofreading fixing spelling typos, these should go
     into separate commits.
     
- Preparing a pull request
- ========================
+Preparing a pull request
+========================
 
 14. Now the commit (which is the Git terminology for “change set”) is
     in your local copy of your fork of the project. To upload it your
@@ -114,7 +114,7 @@ Editing the documents
     git push --set-upstream origin tutorial
 
 
-15.  Git answers with a short report and an URL where you can create a pull
+15. Git answers with a short report and an URL where you can create a pull
     request. Copy it and open it in your browser:
 
     https://github.com/Nils-Magnus/docs_on_docs/pull/new/tutorial

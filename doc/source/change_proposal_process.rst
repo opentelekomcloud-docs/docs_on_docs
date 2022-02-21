@@ -5,7 +5,7 @@ General Contribution Workflow
 To apply a change in the documentation a number of steps have to be performed. They are listed on this page step by step.
 
 Forking target repository
-=======================
+=========================
 
 These steps are necessary to initialize a project repo enabling you to contribute to the documentation of that project:
 

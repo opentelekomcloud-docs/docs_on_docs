@@ -4,6 +4,7 @@ Migration process
 
   
 1. Cone docs-exports repository 
+
   To start the Migration Process you have to clone the Docs-Exports
   This can be achived with the following command 
 
@@ -11,6 +12,7 @@ Migration process
 
 
 2. Run the Conversion Script
+
   In the Doc-Export Repository is a Script which is used to convert the HTML files to the new format. 
 
   The script can be run with the following comand:
@@ -29,16 +31,19 @@ Migration process
 
 
 5. Choose a Template. 
+
   **Which?**
 
 
 6. Clone your new Repository.
+
   The script can be run with the following comand
   
   git clone https://github.com/opentelekomcloud-docs/xxx
 
 
 7. Run conversion script 
+
   For the next step you need to know where you saved the Doc Doc-Export Repository. 
 
   The file path to the Doc Export is needed for the following command

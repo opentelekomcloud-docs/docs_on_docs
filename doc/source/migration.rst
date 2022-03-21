@@ -3,7 +3,7 @@ Migration process
 =================
 
   
-1. Cone docs-exports repository 
+1. Clone docs-exports repository 
 
   To start the Migration Process you have to clone the Docs-Exports
   This can be achived with the following command:
@@ -23,13 +23,13 @@ Migration process
 
   python3 process.py xxx/umn/
   
-Note: you have to change the file directory xxx/umn/ to your dirctive. 
+Note: you have to change the file directory xxx/umn/ to your directory. 
 
 
 3. Contact Ecosystem Squad
  
   Ecosystem Squad will gladly assist you with the next step:
-  They handle creating a repoitory for your spefic service for a ready to use Enviorment. 
+  They handle creating a repoitory for your spefic service for a ready to use Environment. 
 
 
 4. Clone your new Repository.
@@ -58,11 +58,11 @@ Note: you have to change the file directory xxx/umn/ to your dirctive.
 
 Note: Depending on your Documentation you will use /umn/ or /api-ref/
 
-umn is for usermanuals 
+- umn is for usermanuals 
 
-api-ref is for API Reference
+- api-ref is for API Reference
 
-xxx would stand for your service
+- xxx would stand for your service
     
 6. Try to build imported files locally
 

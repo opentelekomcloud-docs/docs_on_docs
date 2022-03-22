@@ -52,7 +52,7 @@ Migration process
 
     *   The file path to the Doc Export is needed for the following command:
   
-      .. code-block:: bash
+      .. code-block:: python 
 
       cp -av file_path/doc-exports/xxx/umn/result umn/source
 

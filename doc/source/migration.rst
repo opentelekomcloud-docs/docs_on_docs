@@ -10,7 +10,7 @@ Migration process
 
     * This can be achived with the following command:
   
-      .. code-block::
+      .. code-block:: bash
 
       git clone https://github.com/opentelekomcloud-docs/doc-exports
 
@@ -21,7 +21,7 @@ Migration process
 
     * The script can be run with the following comand:
   
-      .. code-block::
+      .. code-block:: bash
 
       python3 process.py xxx/umn/
   
@@ -52,12 +52,11 @@ Migration process
 
     *   The file path to the Doc Export is needed for the following command:
   
-      .. code-block::
+      .. code-block:: bash
 
       cp -av file_path/doc-exports/xxx/umn/result umn/source
 
       cp -av file_path/doc-exports/xxx/umn/*.{png,gif,svg} umn/source/_static/images
-
 
     * Note: Depending on your Documentation you will use /umn/ or /api-ref/
 
@@ -73,7 +72,7 @@ Migration process
      
     * Depening on the type of documents you can use following commands: 
 
-      .. code-block::
+      .. code-block:: bash
 
       tox -e umn 
 

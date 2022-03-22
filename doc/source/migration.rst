@@ -56,7 +56,7 @@ Migration process
 
       cp -av file_path/doc-exports/xxx/umn/result umn/source
 
-      r"""" ... cp -av file_path/doc-exports/xxx/umn/*.{png,gif,svg} umn/source/_static/images ... """
+      cp -av file_path/doc-exports/xxx/umn/\*.{png,gif,svg} umn/source/_static/images 
 
     * Note: Depending on your Documentation you will use /umn/ or /api-ref/
 

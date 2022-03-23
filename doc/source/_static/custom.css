@@ -1,0 +1,16 @@
+div.slides {
+}
+
+.reveal p {
+#    text-align: justify;
+}
+
+.no-bullets ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
+:root {
+  --r-main-font-size: 30px !important;
+}

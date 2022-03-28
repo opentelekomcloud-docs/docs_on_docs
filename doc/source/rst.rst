@@ -84,6 +84,7 @@ There are three ways of implementing tables in RST:
 
 1. simple tables 
     .. code-block::
+
         ======  ======  =====
         A       B       C
         ======  ======  =====
@@ -98,6 +99,7 @@ There are three ways of implementing tables in RST:
 
 2. grid tables 
     .. code-block::
+
         +------------------------+------------+----------+----------+
         | Header row, column 1   | Header 2   | Header 3 | Header 4 |
         | (header rows optional) |            |          |          |
@@ -109,6 +111,7 @@ There are three ways of implementing tables in RST:
 
 3. csv tables
     .. code-block::
+        
         .. csv-table:: Frozen Delights!
         :header: "Header 1", "Header 2", "Description"
         :widths: 15, 10, 30

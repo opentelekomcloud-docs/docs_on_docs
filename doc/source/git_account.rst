@@ -69,6 +69,7 @@ Configure upstream remote
 =========================
 
 .. code-block:: bash
+
    $ git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
 
 Sync

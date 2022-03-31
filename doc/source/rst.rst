@@ -2,6 +2,8 @@
 Understanding the RST
 =====================
 
+.. _Integrating images:
+
 Integrating images
 ==================
 
@@ -122,7 +124,10 @@ Looking like:
 
     .. seealso::        This is an see also admonition
 
-    .. admonition::     This is an generic admonition
+    .. admonition::     generic admonition
+
+        This is an generic admonition
+
 
     
 Using following syntax these admonitions can be implemented: 

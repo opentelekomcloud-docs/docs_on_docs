@@ -2,15 +2,12 @@
 Understanding the RST
 =====================
 
-If you want to edit OTC documentation you need to edit it using restructuredtext. 
-The basics of RST will be covered in this documentation. 
-
-Integrating Images
+Integrating images
 ==================
 
-If you simply want to implement a picture you can use following syntax:
+- If you simply want to implement a picture you can use following syntax:
 
-    .. code-block:: 
+    .. code-block:: rst
         
         |imagexx|
 
@@ -18,20 +15,67 @@ If you simply want to implement a picture you can use following syntax:
 
    .. note:: This is an easy way to implement pictures espacially in tables. Ideally the file path would be at the bottom of your file. 
 
-The more elegant way is to use figures with following syntax:
+- Alternatively you can use the image-directive
 
-    .. code-block:: 
+    .. code-block:: rst 
+
+        .. image:: path/filename.proposing-changes-to-your-work-with-pull-requests
+            :width: 400
+            :alt: optinal alternative text 
+
+
+- The more elegant way is to use figures with following syntax:
+
+    .. code-block:: rst 
 
         .. figure:: /_static/images/filename
 
-            :alt: This is your title 
+            :alt: This is the alt text visible if you hover over the picture
 
+Using lists 
+===========
+
+Ordered lists 
+-------------
+
+Use hash symbols to generate ordered lists: 
+
+.. code-block::
+
+    #. Step 1. 
+    #. Step 2. 
+    #. Step 3. 
+
+Resulting in: 
+
+    #. Step 1. 
+    #. Step 2. 
+    #. Step 3. 
+
+Unordered lists
+---------------
+
+Use astrisks for bulleted lists: 
+
+.. code-block:: rst
+
+    * Item 1. 
+    * Item 2. 
+    * Item 3. 
+
+Restlting in: 
+
+    * Item 1. 
+    * Item 2. 
+    * Item 3.   
+
+.. Note:: It is also possible to nest these types of lists in another. 
 
 
 Integrating Admonitions 
 =======================
 
-restructuredtext has ten standard admonitions and one generic. 
+vanilla restructuredtext has ten standard admonitions and one generic. 
 If you want to raise awereness or hint to something you can use following Admonitions:
 
         - attention
@@ -52,10 +96,35 @@ If you want to raise awereness or hint to something you can use following Admoni
 
         - warning
 
+        - seealso
+         
         - admonition
 
-        - seealso
+Looking like: 
 
+    .. attention::  This is an attention admonition
+
+    .. caution::    This is an caution admonition 
+
+    .. danger::     This is an danger admonition
+
+    .. error::      This is an error admonition
+    
+    .. hint::       This is an hint admonition
+
+    .. important::  This is an erros admonition
+    
+    .. note::       This is an note admonition
+
+    .. tip::        This is an note admonition
+
+    .. warning::    This is an warninf admonition
+
+    .. seealso::    This is an seealso admonition
+
+    .. admonition:: This is an generic admonition
+
+    
 Using following syntax these admonitions can be implemented: 
 
     .. code-block::
@@ -64,10 +133,8 @@ Using following syntax these admonitions can be implemented:
 
             This is a note
 
-    
 
-
-You can use an generic admonition with following syntax:
+- You can use an generic admonition with following syntax:
 
     .. code-block::
 
@@ -80,10 +147,12 @@ You can use an generic admonition with following syntax:
 Integrating Tables
 ==================
 
-There are three ways of implementing tables in RST: 
+There are a few ways of implementing tables in RST: 
 
 1. simple tables 
-    .. code-block::
+
+
+    .. code-block:: rst 
 
         ======  ======  =====
         A       B       C
@@ -98,7 +167,9 @@ There are three ways of implementing tables in RST:
         =====   =====   =====
 
 2. grid tables 
-    .. code-block::
+
+
+    .. code-block:: rst
 
         +------------------------+------------+----------+----------+
         | Header row, column 1   | Header 2   | Header 3 | Header 4 |
@@ -109,8 +180,12 @@ There are three ways of implementing tables in RST:
         | body row 2             | ...        | ...      |          |
         +------------------------+------------+----------+----------+
 
+    
+
 3. csv tables
-    .. code-block::
+
+
+    .. code-block:: rst
         
         .. csv-table:: Frozen Delights!
         :header: "Header 1", "Header 2", "Description"
@@ -121,10 +196,112 @@ There are three ways of implementing tables in RST:
         which is totally necceariy due to the imptance of this table"
         "content", 1.99, "content"
 
+
+4. table-directive
+
+    you can also use the table-directive. 
+    This directive has some options for specification like 
+
+    widths: auto, grid or a list of intigres
+    
+    auto or grid would be to easiest to implememt depending on the content
+
+    For example: 
+
+    .. code-block:: 
+
+        .. table:: Truth table for "not"
+        :widths: auto
+
+        =====  =====
+            A    not A
+        =====  =====
+        False  True
+        True   False
+        =====  =====
+
+    Resulting in: 
+
+    .. table:: Truth table for "not"
+        :widths: auto
+
+        =====  =====
+         A     not A
+        =====  =====
+        False  True
+        True   False
+        =====  =====
+
+
+Integrating Links
+=================
+
+Links to sections in the same document 
+You can link from text to a heading of any part of the same document using the :ref: command. 
+
+As an example:
+
+.. code-block::
+
+    :ref:`heading of a diffrent part of the document`
+
+would result in: 
+
+    :ref:`Integrating images`
+
+Anchors
+-------
+
+When you have two sections with the same title in a project you will get build erros 
+when you have a link to either section. Sphinx does not know to which your link does refer to. 
+
+For example: 
+
+.. code-block:: rst
+
+    .. _RST Overview:
+
+    Overview
+    **********
+
+    RST Overview content
+
+
+    .. _Sphinx Overview:
+
+    Overview
+    *********
+
+    Sphinx Overview content
+
+If you want to use the ref-command, you would use te anchor text- 
+As an example: 
+
+.. code-block:: rst
+
+    This is a link to the RST Overview: :ref: `RST Overview`
+
+    This is a link to the Sphinx Overview: :ref: `Sphinx Overview`
+
+
+Links to external hyperlinks
+----------------------------
+
+External hyperlinks, like `OTC
+<https://www.open-telekom-cloud.com/>`_ 
+
+
+.. code-block:: rst 
+
+    External hyperlinks, like `OTC
+    <https://www.open-telekom-cloud.com/>`_
+
+
+
 toctree
 =======
 
-Restructuredtext does not offer any way to interconnect multiple files or split one file up. 
+ Vanilla reST does not offer any way to interconnect multiple files or split one file up. 
 Therefore, sphinx uses a custom directive called toctree to add relations between documents. 
 Also toctree is used for tables of content. 
 
@@ -134,23 +311,25 @@ As a best practice we agreed on **x** on maxdepth.
 
 As an example the index.rst file of this site: 
 
-    .. code-block::
+    .. code-block:: rst
 
         ..toctree::
-            :maxdepth: 1
+
+          :maxdepth: 1
 
 
-                structure
-                change_proposal_process
-                reviewer
-                approver
-                git_account
-                code_editors
-                rst
-                migration
-                presentations/index
+          structure
+          change_proposal_process
+          reviewer
+          approver
+          git_account
+          code_editors
+          rst
+          migration
+          presentations/index
 
-    
+.. seealso:: `Sphiny Docs <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#table-of-contents>`_
+
 
 Markdown + RST
 ==============
@@ -161,9 +340,9 @@ Markdown is mainly used to be formated for the web and it supports inline html
 
 Restructuredtext is used in technical documentation like this documentation. 
 
-
 Useful Links
 ============
+
 https://www.sphinx-doc.org/en/master/usage/restructuredtext/
 
 https://restructuredtext.documatt.com/
@@ -173,3 +352,17 @@ https://www.sphinx-doc.org/en/1.0/markup/toctree.html
 https://www.zverovich.net/2016/06/16/rst-vs-markdown.html
 
 https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#tables
+
+https://sublime-and-sphinx-guide.readthedocs.io/en/latest/references.html#links-to-sections-in-the-same-document
+
+https://sublime-and-sphinx-guide.readthedocs.io/en/latest/references.html#use-a-custom-anchor
+
+https://sublime-and-sphinx-guide.readthedocs.io/en/latest/editor_settings.html
+
+https://sublime-and-sphinx-guide.readthedocs.io/en/latest/references.html#use-custom-link-text
+
+https://sublime-and-sphinx-guide.readthedocs.io/en/latest/references.html#links-to-external-web-pages
+
+https://docutils.sourceforge.io/docs/user/rst/quickref.html
+
+

@@ -102,27 +102,27 @@ If you want to raise awereness or hint to something you can use following Admoni
 
 Looking like: 
 
-    .. attention::  This is an attention admonition
+    .. attention::      This is an attention admonition
 
-    .. caution::    This is an caution admonition 
+    .. caution::        This is an caution admonition 
 
-    .. danger::     This is an danger admonition
+    .. danger::         This is an danger admonition
 
-    .. error::      This is an error admonition
+    .. error::          This is an error admonition
     
-    .. hint::       This is an hint admonition
+    .. hint::           This is an hint admonition
 
-    .. important::  This is an erros admonition
+    .. important::      This is an erros admonition
     
-    .. note::       This is an note admonition
+    .. note::           This is an note admonition
 
-    .. tip::        This is an note admonition
+    .. tip::            This is an note admonition
 
-    .. warning::    This is an warninf admonition
+    .. warning::        This is an warning admonition
 
-    .. seealso::    This is an seealso admonition
+    .. seealso::        This is an see also admonition
 
-    .. admonition:: This is an generic admonition
+    .. admonition::     This is an generic admonition
 
     
 Using following syntax these admonitions can be implemented: 
@@ -301,7 +301,7 @@ External hyperlinks, like `OTC
 toctree
 =======
 
- Vanilla reST does not offer any way to interconnect multiple files or split one file up. 
+Vanilla reST does not offer any way to interconnect multiple files or split one file up. 
 Therefore, sphinx uses a custom directive called toctree to add relations between documents. 
 Also toctree is used for tables of content. 
 

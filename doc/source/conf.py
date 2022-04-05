@@ -36,9 +36,6 @@ master_doc = 'index'
 project = u'Documentation about documentation'
 copyright = u'2021, Various members of the OpenTelekomCloud'
 
-# The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
-
 # Locations to exclude when looking for source files.
 exclude_patterns = ['_build']
 

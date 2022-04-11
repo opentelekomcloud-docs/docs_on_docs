@@ -344,7 +344,6 @@ As an example the index.rst file of this document:
     .. code-block:: rst
 
         ..toctree::
-
           :maxdepth: 1
 
 

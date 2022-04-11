@@ -36,7 +36,7 @@ The standard reST inline markup is quite simple to use:
 
    two asterisks: **text** for strong emphasis (boldface), and
 
-   backquotes: ``text`` for code samples.
+   backquotes: ``text`` for code samples or anything to keep original formatting.
 
 Lists and Quote-like blocks
 ===========================
@@ -60,27 +60,41 @@ List markup is natural, just place an asterisk at the start of a paragraph and i
 Headings, Sections, Subsections
 ===============================
 
-Headings are created by underlining and overlining the title with a **=** character, at least as long as the text:
+Section headers are created by underlining (and optionally overlining) the section title with a punctuation character, at least as long as the text. Normally, there are no heading levels assigned to certain characters as the structure is determined from the succession of headings. There is a defined set of valid and recommended character classes for `sections <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#sections>`_.
+
+There may be any number of levels of section titles, although some output formats may have limits (HTML has 6 levels). 
+
+.. important::
+
+   The convention for heading/section/subsection/sub-subsection below is generally used within the documentation projects, but it is not meant to be a strict rule of **reST**.
+
+**Headings** are created by underlining the title with a **=** character, at least as long as the text:
 
 .. code-block:: rst
 
-   =================
    This is a Heading
    =================
 
-Sections are created by underlining the title with a **=** character, at least as long as the text:
+**Sections** are created by underlining the title with a **-** character, at least as long as the text:
 
 .. code-block:: rst
 
    This is a Section
-   =================
+   -----------------
 
-Subsections are created by underlining the title with a **-** character, at least as long as the text:
+**Subsections** are created by underlining the title with a **~** character, at least as long as the text:
 
 .. code-block:: rst
 
    This is a Subsection
-   --------------------
+   ~~~~~~~~~~~~~~~~~~~~
+
+**Sub-Subsections** are created by underlining the title with a **^** character, at least as long as the text:
+
+.. code-block:: rst
+
+   This is a Sub-Subsection
+   ^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Tables

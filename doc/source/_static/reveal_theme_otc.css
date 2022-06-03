@@ -357,16 +357,32 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 }
 .reveal .slides {
   text-align: left;
+  margin-top: 1em;
+  margin-left: 1em;
 }
 
-.reveal pre {
-  width: 100%;
+.reveal ul {
+  list-style: square;
+  /*	list-style: none;*/
 }
 
+/*.reveal ul ul {
+	list-style: none;
+}*/
+/*
+.reveal ul li::before {
+  content: "\25a0";  
+  color: #e20074; 
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+*/
 .reveal pre code {
   font-size: 0.8em;
   max-height: unset;
-  background-color: white;
+  overflow: scroll;
 }
 
 .reveal {

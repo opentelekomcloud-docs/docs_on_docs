@@ -372,6 +372,6 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal {
   background-image: url("https://docs-beta.otc.t-systems.com/_static/images/dt-magenta.svg");
   background-position: bottom 1em left 1em;
-  background-size: 2em;
+  background-size: 1em;
   background-repeat: no-repeat;
 }

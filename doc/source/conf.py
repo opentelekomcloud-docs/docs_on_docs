@@ -23,18 +23,23 @@ sys.path.insert(0, os.path.abspath('./'))
 
 extensions = [
     'sphinx_revealjs',
+    'myst_parser',
     'otcdocstheme',
 ]
 
 # The suffix of source filenames.
-source_suffix = '.rst'
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.txt': 'markdown',
+    '.md': 'markdown',
+}
 
 # The master toctree document.
 master_doc = 'index'
 
 # General information about the project.
 project = u'Documentation about documentation'
-copyright = u'2021, Various members of the OpenTelekomCloud'
+copyright = u'2022, Various members of the OpenTelekomCloud'
 
 # Locations to exclude when looking for source files.
 exclude_patterns = ['_build']
@@ -49,6 +54,9 @@ html_static_path = ['_static']
 
 revealjs_static_path = ['_static']
 revealjs_css_files = ['custom.css']
+revealjs_style_theme = 'reveal_theme_otc.css'
+# This is required to avoid deprecation warning
+revealjs_generic_font = 'serif'
 revealjs_script_conf = """
 {
     controls: true,

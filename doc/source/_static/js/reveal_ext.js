@@ -1,3 +1,3 @@
 Reveal.initialize({ 
-  width: 80%;
+//  width: 80%;
 })

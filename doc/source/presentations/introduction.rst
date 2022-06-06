@@ -5,7 +5,6 @@ Documentation on Documentation
 ==============================
 
 .. revealjs-slide::
-   :theme: blood
 
 :Revision: 2022-01-20
 

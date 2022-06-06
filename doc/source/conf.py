@@ -53,10 +53,16 @@ otcdocs_auto_name = False
 html_static_path = ['_static']
 
 revealjs_static_path = ['_static']
-revealjs_css_files = ['custom.css']
+revealjs_css_files = ['custom.css', 'revealjs4/plugin/highlight/monokai.css']
 revealjs_style_theme = 'reveal_theme_otc.css'
 # This is required to avoid deprecation warning
 revealjs_generic_font = 'serif'
+revealjs_script_plugins = [
+    {
+            "src": "revealjs4/plugin/highlight/highlight.js",
+            "name": "RevealHighlight",
+    },
+]
 revealjs_script_conf = """
 {
     controls: true,
@@ -77,6 +83,7 @@ revealjs_script_conf = """
 
     width: 1600,
     height: 800,
+    disableLayout: true,
 }
 """
 

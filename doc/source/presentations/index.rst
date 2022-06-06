@@ -6,3 +6,4 @@ Presentations
    :maxdepth: 1
 
    introduction
+   vault_openstack

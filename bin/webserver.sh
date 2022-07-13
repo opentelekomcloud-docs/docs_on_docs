@@ -1,4 +1,4 @@
 #!/bin/sh
 
 cd doc/build/html
-python -m http.server 5000
+python3 -m http.server 5000

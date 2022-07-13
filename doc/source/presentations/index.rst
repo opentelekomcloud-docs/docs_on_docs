@@ -7,3 +7,4 @@ Presentations
 
    introduction
    vault_openstack
+   ansible_collections

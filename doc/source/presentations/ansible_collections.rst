@@ -8,240 +8,227 @@ Cloud Provisioning with Ansible
 
 Is that even possible?
 
-:Revision: 2022-06-03
+
+**Nils Magnus**
+
+Senior Cloud Architect Open Telekom Cloud
+
+stackconf 2022, Berlin, Germany
+
+July 19-20, 2022
 
 
-Layer 1
-=======
+Nils Magnus
+===========
 
-This introduces a list:
+.. list-table::
+   :widths: 30 70
+   :header-rows: 0
 
-- first
-- second
-- third
-  - alpha
-  - beta
-  - gamma
+   * - .. figure:: ./nils-magnus.png
 
-Links:
+     - * Ecosystem Squad of Open Telekom Cloud
+       * Tools for our users and Community work
+       * 20 years experience in security, operations, cloud
+       * tech writer, editor, and journalist
+       * Director for German Unix User Group
 
-https://github.com/opentelekomcloud/vault-plugin-secrets-openstack
-
-
-Layer 2
--------
-
-.. figure:: vault_openstack.svg
-   :align: right
-   :width: 50%
+*Automation should make work easier, not take it away. --- Fred Ammon*
 
 
-More Layer 2
-------------
+Agenda
+------
 
-Configure cloud connection
+* What is Provisioning?
+* 20 quick, but important Cloud and Automation Terms
+* Success Story of Ansible
+* Architecture Overview
+* Installation and technical Prerequisites
+* Examples and Demo
+* Ansible Collections for Developers
+  
 
-.. code-block:: console
+Provisioning
+============
 
-   $ vault write /openstack/cloud/example-cloud \
-       auth_url=https://127.0.0.1/v3/ \
-       username=admin password=admin \
-       user_domain_name=mydomain \
-       username_template= vault{{random 8 | lowercase}} \
-       password_policy=my-policy
+modern software setup come in (at least two) layers: **infrastructure** and **application**
 
-   Success! Data written to: openstack/cloud/example-cloud
+* **provisioning** means to build and configure **infrastructure**
 
-CLI
----
+* **configuring** means to build and adapt **applications**
 
-.. code-block:: console
+both terms have been introduced by the **cloud**
 
-   $ vault read /openstack/creds/role-tmp-user
-
-   Key                Value
-   ---                -----
-
-   lease_id           openstack/creds/role-tmp-user/Humt41Qu8s1k5f4AZ8PUmDxE
-   lease_duration     1h
-   lease_renewable    false
-   auth_url           https://127.0.0.1/v3/
-   expires_at         2022-05-13 02:03:36 +0000 UTC
-   auth               map[auth_url:https://iam.eu-de.otc.t-systems.com
-     project_domain_name:domain project_name:my_prj token:MIIF-wYJKoZ…]
-
-Summary
-=======
-
-- Root password never leaves Vault
-- Automatic “root” password rotation
-- Get token for “root” with scope
-- Get token for temporary user with scope
-- Get password for temporary user with scope
-- Temporary user has TTL and is dropped by Vault (resources cleanup?)
+this is best done in a **scripted** or **automated** way
 
 
-Roadmap
-=======
+Why automate building infrastructure?
+-------------------------------------
 
-- Hand it over to OpenStack community
-- Integrate support into `clouds.yaml`
-- Any other ideas?
-
-
-Q&A
-===
-
-
-Thank you
-=========
-
-    **Get in touch with us!**
-
-    Nils Magnus
-   
-    https://open-telekom-cloud.com/
+disaster recovery:
+  fast and automated rebuild of setups, short downtime
+updating and code hygiene:
+  instead of patching, better rebuild
+infrastructure testing, compliance of APIs and interfaces:
+  Setup consists of many components whose interaction is complex
+knowledge sharing:
+  passing on codified best practices.
 
 
+Forms of provisioning
+---------------------
 
-Provisionierung mit Ansible
-===========================
+manually
 
-Wie uns die Cloud die Provisionierung geschenkt/beschert hat
+run books stored in wikis or similar
 
-Infrastruktur ist aufzubauen
---> das macht man am besten geskriptet/automatisiert
+bash scripts
 
+installer (how do they actually work internally?)
 
-Was bedeutet es, Infrastruktur aufzubauen? Wieso macht man das?
----------------------------------------------------------------
-
---> mehr als nur einmal einen Server aufzusetzen
-
-1. Für Desaster Recovery: Schnelles und automatisertes wiederaufbauen von setups, niedrige downtime
-
-2. Updating und Code-Hygiene: Statt patchen lieber neu aufbauen
-
-3. Zum Infrastrukturtesten, Compliance von APIs und Schnittstellen. Setup bestehen aus vielen Komponenten, deren zusammenspiel komplex ist
-
-4. Knowledge Sharing: Weitergeben von codifizierten best Practices.
-
-5. Bindeglied zwischen Plattform und Bare Metal etc. Worauf laufen Kubernetes-Cluster?
-
-
-Formen der Provisionierung
---------------------------
-
-Manuell
-
-Run-Books, gespeichert in Wikis o. ä.
-
-Bash-Skripte
-
-Installer (wie funktionieren die eigentlich intern?)
-
-Sprachen, die Provisiernierung übernehmen
+**domain specific languages ​​that support provisioning**
 
 
 Infrastructure as Code
 ----------------------
 
-Soll deklarativ sein (was statt wie)
+Should be **declarative** (what instead of how)
 
-konvergent (soll sich dem Ziel nähern)
+**convergent** (to approach the target)
 
-Soll idempotent sein
+Should be **idempotent** (repetition doesn't hurt)
 
-Erheben und verwalten des Zustands
+Assess and manage **status**
 
 
-Typische Vertreter
-------------------
+Typical Representatives
+-----------------------
 
-Vsphere (haha)
+VSphere (haha)
 
 Terraform
 
 Pulumi
 
-Heat (Cloud Formation, ...)
+Heat (cloud formation, ...)
 
-... und Ansible?
+... and Ansible?
 
 
-Important terms and prerequisites
+
+Important Terms and Prerequisites
+=================================
+
+Ansible:
+  configuration management framework, that leverages SSH and
+  Python to configure a target from a controller.
+
+Controller a. k. a. Controller Node:
+  The system you sit in front of. Has typically checked out a Git
+  repo.
+
+Targets a. k. a Managed Nodes:
+  The systems you manage as an administrator, devops, or system
+  engineer.
+
+  
+Ansible Terms and Concepts
+--------------------------
+
+module:
+  takes care that a resource has a specific state, for example make
+  sure that user "magnus" exists or RPM package "emacs" is installed.
+
+task:
+  description of the circumstances a module operates on.
+
+role:
+  a template on how to combine several tasks into a more holistic
+  activity like installing a webserver (installing the package,
+  configuring some files, starting the service) play collection.
+
+  
+Cloud Terms and Concepts
+------------------------
+  
+cloud:
+  service that enables you to manage various resources such as
+  servers, storage, and networks via an API.
+
+OpenStack:
+  Open Source cloud framework, developed under the four Opens: Open
+  Source, Open Design, Open Development, Open Community.
+
+  
+Cloud Access Terms and Conepts
+------------------------------
+ 
+SDK:
+  a Python library that accesses the OpenStack API and performs some
+  housekeeping tasks.
+
+Client:
+  a CLI tool to query and manipulate cloud resources on the command
+  line via the SDK and API. Used for manual tasks.
+
+bastion:
+  a multipurpose server in a cloud domain, exposed to the
+  Internet. Can (after proper authorization) access servers and other
+  ressoures hidden from public users views. This is our today's
+  project goal to install.
+
+  
+Python Terms and Concepts
+-------------------------
+  
+Python:
+  Programming language Ansible and OpenStack SDK are mostly written
+  in. We only cover Python 3 here, sometimes at least version 3.8 is
+  required.
+
+pip:
+  Python Package manager. We install Ansible, the SDK and Client from
+  it.
+
+virtual environment:
+  sandbox that makes sure that installed Python packages don't mess
+  with your Linux distribution.
+
+Open Telekom Cloud:
+  <commercial break>Public cloud operated for Deutsche Telekom by
+  T-Systems International GmbH in Europe by Europeans. Complies to
+  several certifications and is GDPR compliant, which is debatable for
+  other Hyperscaler clouds. </commercial break>
+
+OpenStack Terms and Concepts
+----------------------------
+  
+ECS:
+  Elastic cloud server or just a VM.
+
+image:
+  virtual installation medium containing a linux distribution like
+  Ubuntu 22.04 or CentOS Stream.
+
+flavor:
+  abstraction for the combination of CPUs and memory applied to
+  a VM. The flavor "s3.medium.1" describes a server with one core and
+  1 GByte RAM, for example.
+
+OpenStack Terms and Concepts (II)
 ---------------------------------
+  
+volumes:
+  hard drives or block devices in cloud speech.
 
-Ansible: configuration management framework, that leverages SSH and
-         Python to configure a target from a controller.
-
-Controller a. k. a. Controller Node: The system you sit in front
-         of. Has typically checked out a Git repo.
-
-Targets  a. k. a Managed Nodes: The systems you manage as an
-         administrator, devops, or system engineer.
-
-module:  takes care that a resource has a specific state, for example
-         make sure that user "magnus" exists or RPM package "emacs" is
-         installed.
-
-task:    description of the circumstances a module operates on.
-
-role:    a template on how to combine several tasks into a more holistic
-         activity like installing a webserver (installing the package,
-         configuring some files, starting the service) play collection.
-
-cloud:   service that enables you to manage various resources such as
-         servers, storage, and networks via an API.
-
-OpenStack: Open Source cloud framework, developed under the four
-         Opens: Open Source, Open Design, Open Development, Open Community.
-
-SDK:     a Python library that accesses the OpenStack API and performs
-         some housekeeping tasks.
-
-Client:  a CLI tool to query and manipulate cloud resources on the
-         command line via the SDK and API. Used for manual tasks.
-
-bastion: a multipurpose server in a cloud domain, exposed to the
-         Internet. Can (after proper authorization) access servers
-         and other ressoures hidden from public users views. This is
-         our today's project goal to install.
-
-Python:  Programming language Ansible and OpenStack SDK are mostly
-         written in. We only cover Python 3 here, sometimes at least
-         version 3.8 is required.
-
-pip:     Python Package manager. We install Ansible, the SDK and Client
-         from it.
-
-virtual environment: sandbox that makes sure that installed Python
-         packages don't mess with your Linux distribution.
-
-Open Telekom Cloud: <commercial break>Public cloud operated for
-         Deutsche Telekom by T-Systems International GmbH in Europe by
-         Europeans. Complies to several certifications and is GDPR
-         compliant, which is debatable for other Hyperscaler
-         clouds. </commercial break>
-
-ECS:	 Elastic cloud server or just a VM.
-
-image:   virtual installation medium containing a linux distribution
-         like Ubuntu 22.04 or CentOS Stream.
-
-flavor:  abstraction for the combination of CPUs and memory applied to
-         a VM. The flavor "s3.medium.1" describes a server with one
-         core and 1 GByte RAM, for example.
-
-volumes: hard drives or block devices in cloud speech.
-
-network: IP addresses, networks, subnets, routers, security groups,
-         and some more resources work similar like their physical
-         conterparts, but can be configured via API and SDK.
+network:
+  IP addresses, networks, subnets, routers, security groups, and some
+  more resources work similar like their physical conterparts, but can
+  be configured via API and SDK.
 
 
 Was ist eigentlich Ansible?
----------------------------
+===========================
 
 Bekannt als Konfigurationmanagement Tool
 
@@ -319,6 +306,18 @@ Collections werden per Ansible-Galaxy installiert. Das Tool kommt bei
 der Installation von Ansible selbst mit.
 
 
+.. code-block:: console
+
+   $ vault write /openstack/cloud/example-cloud \
+       auth_url=https://127.0.0.1/v3/ \
+       username=admin password=admin \
+       user_domain_name=mydomain \
+       username_template= vault{{random 8 | lowercase}} \
+       password_policy=my-policy
+
+   Success! Data written to: openstack/cloud/example-cloud
+
+
 Installation
 ============
 
@@ -348,8 +347,8 @@ Alternativ auch per Paketmanager der Linux-Distribution (Ubuntu 22.04:
 2. OpenStack SDK installieren (aktuell ist Version 0.61.0 notwendig)
 
   pip install openstacksdk==0.61.0
-  
-3. Ansible Collections laden: 
+
+3. Ansible Collections laden:
 
   ansible-galaxy install openstack.cloud
 
@@ -376,7 +375,7 @@ The confusion with Versions
 
 Versions of Ansible Collections:
   1.x: Requires ...
-  
+
 https://hackmd.io/szgyWa5qSUOWw3JJBXLmOQ
 
 
@@ -451,3 +450,26 @@ Dynamic Inventory
 
 
 openstack_inventory.py
+
+
+
+Roadmap
+=======
+
+- Hand it over to OpenStack community
+- Integrate support into `clouds.yaml`
+- Any other ideas?
+
+
+Q&A
+===
+
+
+Thank you
+=========
+
+    **Get in touch with us!**
+
+    Nils Magnus
+
+    https://open-telekom-cloud.com/

@@ -78,7 +78,7 @@ Solution Options
 How
 ===
 
-.. image:: ../_static/images/workflow.png
+.. image:: ../../_static/images/workflow.png
    :width: 70%
 
 Key Features

@@ -1,9 +1,11 @@
 Presentations
 =============
 
-
 .. toctree::
    :maxdepth: 1
 
-   introduction
-   vault_openstack
+   intro/introduction
+   vault/vault_openstack
+   ansible/ansible_collections
+   sandbox/sandbox
+   usercreate/createusers

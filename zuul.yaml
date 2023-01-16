@@ -3,11 +3,3 @@
     default-branch: main
     templates:
       - publish-otc-docs-pti
-      
-      
-    check:
-      jobs:
-        - noop
-    gate:
-      jobs:
-        - noop

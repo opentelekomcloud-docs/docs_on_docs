@@ -2,31 +2,33 @@
 Documentation about documentation
 =================================
 
-This repository will contain information that anybody
-maintaining Open Telekom Cloud documentation need to know.
+This repository contains information that maintainers of the Open
+Telekom Cloud documentation need to know.
+
 
 Working in the Open
 ===================
 
 The Open Telekom Cloud values transparency as a main principle.
-Therefore, all public facing documentation is maintained in the
-open, by open-source components. All steps of the process are
-publicly visible and transparent. This eases the collaboration
-of our suppliers, OTC staff, and even customers or users. All
-can propose changes, all can participate in the review process,
-and each team can appoint arbitrary persons to approve changes,
-ensuring the integrity of the overall documentation. All changes
-are recorded and archived, so changes can be rolled back, and
-audit trails are available even for the tiniest change.
+Therefore, all public facing documentation is maintained in the open,
+by open-source components. All steps of the process are publicly
+visible and transparent. This eases the collaboration of our
+suppliers, OTC staff, and even customers or users. All can propose
+changes, all can participate in the review process, and each team can
+appoint arbitrary persons to approve changes, ensuring the integrity
+of the overall documentation. All changes are recorded and archived,
+so changes can be rolled back, and audit trails are available even for
+the tiniest change.
+
 
 Responsibilities and Ownership
 ==============================
 
 The content of the projects is owned by the Open Telekom Cloud Squads
 responsible for the services respectively. Each team can appoint one
-or several Squad members (or external contributors, if
-suitable). Typically, one documentation lead and a deputy are
-recommended, but other setups are also possible.
+or several Squad members (or external contributors, if suitable).
+Typically, one documentation lead and a deputy are recommended, but
+other setups are also possible.
 
 All assets in the repository are public visible, and so are the PRs or
 the review messages themselves. That’s why sensitive data like
@@ -47,6 +49,7 @@ The architecture, process, and implementation of the Helpcenter 3.0
 was initiated by the Ecosystem Squad. It was presented to the Product
 Owner Community and during the XXXXXXXXXXX meeting/call/board. It was
 approved on November XX, 2021 as authoritative by the board.
+
 
 Target Audience and Prerequisites
 =================================
@@ -75,6 +78,7 @@ Content
    change_proposal_process
    reviewer
    approver
+   account_creation
    git_account
    code_editors
    rst

@@ -1,5 +1,12 @@
+---
 - project:
     merge-mode: squash-merge
     default-branch: main
     templates:
-      - publish-otc-docs-pti
+      - helpcenter-base-jobs
+    check:
+      jobs:
+        - noop
+    gate:
+      jobs:
+        - noop

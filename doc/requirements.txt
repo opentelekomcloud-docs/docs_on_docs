@@ -1,6 +1,5 @@
 sphinx>=2.0.0,!=2.1.0 # BSD
-myst_parser
-sphinx-revealjs
+
 otcdocstheme<2.0.0 # Apache-2.0
 
 # releasenotes
@@ -10,3 +9,4 @@ otc-sphinx-directives>=0.1.0
 sphinx-minify>=0.0.1 # Apache-2.0
 git+https://gitea.eco.tsi-dev.otc-service.com/infra/otc-metadata.git#egg=otc_metadata
 setuptools
+gitpython

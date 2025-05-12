@@ -4,6 +4,8 @@
     default-branch: main
     templates:
       - helpcenter-base-jobs
+    vars:
+      sphinx_pdf_files:
     check:
       jobs:
         - noop

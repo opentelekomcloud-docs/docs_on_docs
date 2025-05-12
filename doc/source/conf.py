@@ -20,6 +20,8 @@ from git import Repo
 from datetime import datetime
 
 extensions = [
+    'sphinx_revealjs',
+    'myst_parser',
     'otcdocstheme',
     'otc_sphinx_directives'
 ]

@@ -20,8 +20,6 @@ from git import Repo
 from datetime import datetime
 
 extensions = [
-    'sphinx_revealjs',
-    'myst_parser',
     'otcdocstheme',
     'otc_sphinx_directives'
 ]
@@ -41,6 +39,7 @@ otcdocs_doc_type = ''
 otcdocs_service_category = 'other'
 otcdocs_service_title = 'Documentation about documentation'
 otcdocs_service_type = 'dod'
+otcdocs_service_environment = 'public'
 otcdocs_cloud_environment = 'eu_de'
 otcdocs_search_environment = 'hc_de'
 otcdocs_search_index = 'search_index_de'
